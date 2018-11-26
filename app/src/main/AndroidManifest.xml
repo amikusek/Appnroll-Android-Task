@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:name=".AppnrollApp">
-        <activity android:name=".MainActivity">
+        <activity android:name=".viper.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
