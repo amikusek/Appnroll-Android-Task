@@ -66,6 +66,12 @@ class MainPresenter : BaseRxPresenter<MainContract.View, MainContract.Interactor
                         .retrySubscribe(
                                 onNext = { loadLocalData.onNext(Unit) },
                                 onError = { it.printStackTrace() }))
+        addSubscription(
+                view
+                        ?.infoBtnClicksEvents
+                        ?.retrySubscribe(
+                                onNext = { routing.showInfoDialog() },
+                                onError = { it }))
 
         if (interactor.isFirstRun())
             loadInitData.onNext(Unit)

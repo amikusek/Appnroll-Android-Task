@@ -12,6 +12,7 @@ interface MainContract {
 
     interface View : MvpView {
         val onCountryListItemClicksEvents: Observable<Country>
+        val infoBtnClicksEvents: Observable<Any>
         fun setList(countries: List<Country>)
         fun showLoading()
         fun showList()
@@ -31,6 +32,7 @@ interface MainContract {
     }
 
     interface Routing : ViperRxRouting<AppCompatActivity> {
+        fun showInfoDialog()
         fun startCountryDetailsScreen(country: Country)
         fun getCountriesFromFile(): Observable<String>
     }
