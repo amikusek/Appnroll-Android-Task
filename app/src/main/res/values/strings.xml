@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">App\'n\'roll</string>
+
+    <string name="error_view_text">Something gone wrong…</string>
 </resources>
