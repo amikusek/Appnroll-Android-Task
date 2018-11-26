@@ -1,12 +1,21 @@
+#Ignore OS files
+
+# Windows
+Thumbs.db
+
+# Linux
+.directory
+*~
+
+# MacOS
+.DS_Store
+
 # Built application files
 *.apk
 *.ap_
 
 # Files for the ART/Dalvik VM
 *.dex
-
-# Java class files
-*.class
 
 # Generated files
 bin/
