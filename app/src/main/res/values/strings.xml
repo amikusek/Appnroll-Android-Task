@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">App\'n\'roll</string>
+
+    <string name="dialog_info_title">Recruitment task created for App\'n\'roll</string>
+    <string name="dialog_info_last_fetch_date">Last fetch date: %1s</string>
+    <string name="dialog_info_next_fetch_date">Next fetch date: %1s</string>
+
+    <string name="error_view_text">Something gone wrong…</string>
+</resources>

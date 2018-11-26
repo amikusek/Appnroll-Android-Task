@@ -1,12 +1,21 @@
+#Ignore OS files
+
+# Windows
+Thumbs.db
+
+# Linux
+.directory
+*~
+
+# MacOS
+.DS_Store
+
 # Built application files
 *.apk
 *.ap_
 
 # Files for the ART/Dalvik VM
 *.dex
-
-# Java class files
-*.class
 
 # Generated files
 bin/
@@ -34,13 +43,7 @@ captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/caches
+.idea/*
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
