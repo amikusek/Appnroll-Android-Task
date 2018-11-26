@@ -1,10 +1,60 @@
 package com.appnroll.recruitment.viper.main
 
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import com.appnroll.recruitment.R
+import com.appnroll.recruitment.data.entity.Country
+import com.appnroll.recruitment.extension.gone
+import com.appnroll.recruitment.extension.visible
+import com.appnroll.recruitment.viper.main.list.CountryListAdapter
+import com.appnroll.recruitment.viper.main.list.aggregate.CountryListItem
 import com.mateuszkoslacz.moviper.base.view.activity.autoinject.passive.ViperAiPassiveActivity
-import com.mateuszkoslacz.moviper.iface.presenter.ViperPresenter
+import io.reactivex.Observable
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : ViperAiPassiveActivity<MainContract.View>(), MainContract.View {
+
+    private var adapter = CountryListAdapter()
+
+    override val onCountryListItemClicksEvents: Observable<Country>
+        get() = adapter.itemClicks
+
+    override fun injectViews() {
+        super.injectViews()
+        setRecyclerView()
+    }
+
+    override fun setList(countries: List<Country>) {
+        recyclerView.adapter = adapter
+        adapter.listingItems = countries.map { CountryListItem(it) }
+    }
+
+    override fun showLoading() {
+        loadingView.visible()
+        recyclerView.gone()
+        errorView.gone()
+    }
+
+    override fun showList() {
+        loadingView.gone()
+        recyclerView.visible()
+        errorView.gone()
+    }
+
+    override fun showError(throwable: Throwable) {
+        loadingView.gone()
+        recyclerView.visible()
+        errorView.gone()
+    }
+
+    private fun setRecyclerView() {
+        recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
+            setDrawable(ContextCompat.getDrawable(context, R.drawable.list_divider)!!)
+        })
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
 
     override fun createPresenter() = MainPresenter()
 
